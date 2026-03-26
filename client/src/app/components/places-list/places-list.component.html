@@ -1,0 +1,17 @@
+<div class="card">
+  <h3>Mes lieux ({{ addresses.length }})</h3>
+  @if (addresses.length === 0) {
+    <p class="empty">Aucun lieu enregistré</p>
+  }
+  <div class="list">
+    @for (addr of addresses; track addr.id) {
+      <div class="place-item" (click)="select(addr)">
+        <div class="place-name">{{ addr.name }}</div>
+        @if (addr.description) {
+          <div class="place-desc">{{ addr.description }}</div>
+        }
+        <div class="place-coords">{{ addr.lat.toFixed(4) }}, {{ addr.lng.toFixed(4) }}</div>
+      </div>
+    }
+  </div>
+</div>

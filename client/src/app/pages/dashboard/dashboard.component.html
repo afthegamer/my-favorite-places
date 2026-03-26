@@ -1,0 +1,29 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <app-add-place-form (placeCreated)="onPlaceCreated($event)" />
+    <app-search-radius
+      [mapCenter]="mapCenter"
+      (searchResults)="onSearchResults($event)"
+      (searchCenterChange)="onSearchCenter($event)"
+      (clearSearch)="onClearSearch()"
+    />
+    @if (searchResults) {
+      <div class="search-info">
+        <span>{{ searchResults.length }} résultat(s)</span>
+        <button class="btn-clear" (click)="onClearSearch()">Effacer la recherche</button>
+      </div>
+    }
+    <app-places-list
+      [addresses]="displayedAddresses"
+      (placeSelected)="onPlaceSelected($event)"
+    />
+  </aside>
+  <main class="map-area">
+    <app-map-view
+      [addresses]="displayedAddresses"
+      [selectedPlace]="selectedPlace"
+      [searchCenter]="searchCenter"
+      (centerChange)="onMapCenterChange($event)"
+    />
+  </main>
+</div>

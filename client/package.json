@@ -1,0 +1,48 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@10.9.3",
+  "dependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "@types/leaflet": "^1.9.21",
+    "leaflet": "^1.9.4",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^2.2.3",
+    "@analogjs/vitest-angular": "^2.2.3",
+    "@angular/build": "^21.1.5",
+    "@angular/cli": "^21.1.5",
+    "@angular/compiler-cli": "^21.1.0",
+    "jsdom": "^28.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.18"
+  }
+}

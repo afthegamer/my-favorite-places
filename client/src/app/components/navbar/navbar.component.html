@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <a routerLink="/" class="brand">My Favorite Places</a>
+  @if (auth.isLoggedIn()) {
+    <div class="nav-right">
+      <span class="user-email">{{ auth.user()?.email }}</span>
+      <button class="btn-logout" (click)="logout()">Déconnexion</button>
+    </div>
+  } @else {
+    <div class="nav-right">
+      <a routerLink="/login" class="nav-link">Connexion</a>
+      <a routerLink="/register" class="nav-link">Inscription</a>
+    </div>
+  }
+</nav>

@@ -1,0 +1,62 @@
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.empty {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.place-item {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.place-item:hover {
+  border-color: var(--color-primary);
+  background: #f5f3ff;
+}
+
+.place-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.place-desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
+.place-coords {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  margin-top: 0.25rem;
+  font-family: monospace;
+}
