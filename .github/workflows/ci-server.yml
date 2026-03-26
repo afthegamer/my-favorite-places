@@ -31,10 +31,3 @@ jobs:
           context: ./server
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.repository }}/server:latest
-
-      - name: Build and push client image
-        uses: docker/build-push-action@v6
-        with:
-          context: ./client
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/client:latest
