@@ -3,3 +3,10 @@ dist/
 .angular/
 *.sqlite
 test-results/
+.idea/
+.claude/
+.vscode/
+*.env
+.env.*
+.DS_Store
+Thumbs.db
