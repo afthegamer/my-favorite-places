@@ -1,7 +1,7 @@
-name: Build and Push Docker Images
+name: ci client
 
 on:
-  push:
+  pull_request:
     branches: [master]
 
 env:
