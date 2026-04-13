@@ -3,6 +3,8 @@ name: ci-server
 on:
   pull_request:
     branches: [master]
+    paths:
+      - 'server/**'
 
 env:
   REGISTRY: ghcr.io

@@ -3,6 +3,8 @@ name: ci-client
 on:
   pull_request:
     branches: [master]
+    paths:
+      - 'client/**'
 
 env:
   REGISTRY: ghcr.io
