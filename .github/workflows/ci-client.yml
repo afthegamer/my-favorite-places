@@ -5,10 +5,12 @@ on:
     branches: [master]
     paths:
       - 'client/**'
+      - '.github/workflows/ci-client.yml'
   push:
     branches: [dev]
     paths:
       - 'client/**'
+      - '.github/workflows/ci-client.yml'
     tags:
       - 'v*'
 
