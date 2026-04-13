@@ -5,6 +5,10 @@ on:
     branches: [master]
     paths:
       - 'server/**'
+  push:
+    branches: [dev]
+    paths:
+      - 'server/**'
 
 env:
   REGISTRY: ghcr.io
@@ -66,5 +70,5 @@ jobs:
           context: ./server
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository }}/server:latest
+            ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.ref_name == 'dev' && 'dev' || 'latest' }}
             ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.sha }}
