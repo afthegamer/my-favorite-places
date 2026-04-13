@@ -63,4 +63,6 @@ jobs:
         with:
           context: ./server
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/server:latest
+          tags: |
+            ${{ env.REGISTRY }}/${{ github.repository }}/server:latest
+            ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.sha }}

@@ -45,4 +45,6 @@ jobs:
         with:
           context: ./client
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/client:latest
+          tags: |
+            ${{ env.REGISTRY }}/${{ github.repository }}/client:latest
+            ${{ env.REGISTRY }}/${{ github.repository }}/client:${{ github.sha }}
