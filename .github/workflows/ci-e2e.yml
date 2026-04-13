@@ -1,0 +1,59 @@
+name: ci-e2e
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: my_favorite_places
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: my_favorite_places
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 25
+
+      - name: Install server dependencies
+        run: npm ci
+        working-directory: ./server
+
+      - name: Install client dependencies
+        run: npm ci
+        working-directory: ./client
+
+      - name: Install e2e dependencies
+        run: npm ci
+        working-directory: ./e2e
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        working-directory: ./e2e
+
+      - name: Run E2E tests
+        run: npm test
+        working-directory: ./e2e
