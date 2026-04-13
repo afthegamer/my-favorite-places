@@ -9,6 +9,8 @@ on:
     branches: [dev]
     paths:
       - 'server/**'
+    tags:
+      - 'v*'
 
 env:
   REGISTRY: ghcr.io
@@ -70,5 +72,5 @@ jobs:
           context: ./server
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.ref_name == 'dev' && 'dev' || 'latest' }}
+            ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || (github.ref_name == 'dev' && 'dev' || 'latest') }}
             ${{ env.REGISTRY }}/${{ github.repository }}/server:${{ github.sha }}
